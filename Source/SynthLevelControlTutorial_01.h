@@ -83,21 +83,25 @@ public:
         for (auto channel = 0; channel < bufferToFill.buffer->getNumChannels(); ++channel)
         {
             auto level = 0.0;
+            auto levelScale = 0.0;
+
             if (channel == 0)
             {
                 level = (float)levelSlider.getValue();
+                levelScale = level * 2.0f;
             }
             if (channel == 1)
             {
                 level = (float)levelSlider1.getValue();
+                levelScale = level * 2.0f;
             }
 
             auto* buffer = bufferToFill.buffer->getWritePointer (channel, bufferToFill.startSample);
 
             for (auto sample = 0; sample < bufferToFill.numSamples; ++sample)
             {
-                auto noise = random.nextFloat() * 2.0f - 1.0f;
-                buffer[sample] = noise * level;
+                auto noise = random.nextFloat() - 1.0f;
+                buffer[sample] = noise * levelScale;
             }
         }
     }
