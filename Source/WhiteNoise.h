@@ -104,7 +104,7 @@ public:
 
             for (auto sample = 0; sample < bufferToFill.numSamples; ++sample)
             {
-                auto noise = random.nextFloat() - 1.0f;
+                auto noise = random.nextFloat() * 2 - 1.0f;
                 buffer[sample] = noise * level;
             }
         }
