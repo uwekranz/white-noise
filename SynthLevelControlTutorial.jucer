@@ -2,7 +2,7 @@
 
 <JUCERPROJECT name="SynthLevelControlTutorial" companyName="JUCE" version="1.0.0"
               userNotes="Synthesiser with level control." companyWebsite="http://juce.com"
-              defines="" projectType="guiapp" id="I0dfNr" jucerVersion="5.4.7">
+              defines="" projectType="guiapp" id="I0dfNr" jucerFormatVersion="1">
   <MAINGROUP id="XHon16" name="SynthLevelControlTutorial">
     <GROUP id="{EC3E7B4C-757E-8C38-CFAB-A6FD1BAFF97A}" name="Source">
       <FILE id="h8eKXe" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
