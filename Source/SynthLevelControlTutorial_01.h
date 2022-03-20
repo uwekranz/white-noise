@@ -89,15 +89,15 @@ public:
     {
         for (auto channel = 0; channel < bufferToFill.buffer->getNumChannels(); ++channel)
         {
-            auto level = 0.0;
+            float level = 0.0;
 
             if (channel == 0)
             {
-                level = leftLevelSlider.getValue();
+                level = (float) leftLevelSlider.getValue();
             }
             if (channel == 1)
             {
-                level = rightLevelSlider.getValue();
+                level = (float) rightLevelSlider.getValue();
             }
 
             auto* buffer = bufferToFill.buffer->getWritePointer (channel, bufferToFill.startSample);
