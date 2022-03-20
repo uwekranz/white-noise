@@ -107,7 +107,7 @@ public:
 
             for (auto sample = 0; sample < bufferToFill.numSamples; ++sample)
             {
-                buffer[sample] = random.nextFloat() * 2 * level - level;
+                buffer[sample] = random.nextFloat() * levelScale - level;
             }
         }
     }
