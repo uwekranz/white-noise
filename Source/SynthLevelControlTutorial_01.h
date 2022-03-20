@@ -53,22 +53,29 @@ class MainContentComponent   : public AudioAppComponent
 public:
     MainContentComponent()
     {
-        levelSlider.setRange (0.0, 0.25);
-        levelSlider.setTextBoxStyle (Slider::TextBoxRight, false, 100, 20);
-        levelLabel.setText ("Noise Level", dontSendNotification);
-
-        addAndMakeVisible (levelSlider);
-        addAndMakeVisible (levelLabel);
-
-        levelSlider1.setRange(0.0, 0.25);
-        levelSlider1.setTextBoxStyle(Slider::TextBoxRight, false, 100, 20);
-        levelLabel1.setText("Noise Level 1", dontSendNotification);
-
-        addAndMakeVisible(levelSlider1);
-        addAndMakeVisible(levelLabel1);
-
         setSize (600, 100);
         setAudioChannels (0, 2);
+
+        addLeftNoiseLevelSlider();
+        addRightNoiseLevelSlider();
+    }
+
+    void addRightNoiseLevelSlider() {
+        rightLevelSlider.setRange(0.0, 0.25);
+        rightLevelSlider.setTextBoxStyle(Slider::TextBoxRight, false, 100, 20);
+        rightLevelLabel.setText("Right Noise Level", dontSendNotification);
+
+        addAndMakeVisible(rightLevelSlider);
+        addAndMakeVisible(rightLevelLabel);
+    }
+
+    void addLeftNoiseLevelSlider() {
+        leftLevelSlider.setRange (0.0, 0.25);
+        leftLevelSlider.setTextBoxStyle (Slider::TextBoxRight, false, 100, 20);
+        leftLevelLabel.setText ("Left Noise Level", dontSendNotification);
+
+        addAndMakeVisible(leftLevelSlider);
+        addAndMakeVisible(leftLevelLabel);
     }
 
     ~MainContentComponent() override
@@ -83,17 +90,14 @@ public:
         for (auto channel = 0; channel < bufferToFill.buffer->getNumChannels(); ++channel)
         {
             auto level = 0.0;
-            auto levelScale = 0.0;
 
             if (channel == 0)
             {
-                level = (float)levelSlider.getValue();
-                levelScale = level * 2.0f;
+                level = leftLevelSlider.getValue();
             }
             if (channel == 1)
             {
-                level = (float)levelSlider1.getValue();
-                levelScale = level * 2.0f;
+                level = rightLevelSlider.getValue();
             }
 
             auto* buffer = bufferToFill.buffer->getWritePointer (channel, bufferToFill.startSample);
@@ -101,7 +105,7 @@ public:
             for (auto sample = 0; sample < bufferToFill.numSamples; ++sample)
             {
                 auto noise = random.nextFloat() - 1.0f;
-                buffer[sample] = noise * levelScale;
+                buffer[sample] = noise * level;
             }
         }
     }
@@ -110,20 +114,21 @@ public:
 
     void resized() override
     {
-        levelLabel .setBounds (10, 10, 90, 20);
-        levelSlider.setBounds (100, 10, getWidth() - 110, 20);
+        leftLevelLabel .setBounds (10, 10, 90, 20);
+        leftLevelSlider.setBounds (100, 10, getWidth() - 110, 20);
 
-        levelLabel1.setBounds(10, 40, 90, 20);
-        levelSlider1.setBounds(100, 40, getWidth() - 110, 20);
+        rightLevelLabel.setBounds(10, 40, 90, 20);
+        rightLevelSlider.setBounds(100, 40, getWidth() - 110, 20);
     }
 
 private:
     Random random;
-    Slider levelSlider;
-    Label  levelLabel;
 
-    Slider levelSlider1;
-    Label  levelLabel1;
+    Slider leftLevelSlider;
+    Label  leftLevelLabel;
+
+    Slider rightLevelSlider;
+    Label  rightLevelLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };

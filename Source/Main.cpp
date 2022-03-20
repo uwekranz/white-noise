@@ -15,10 +15,10 @@ public:
     //==============================================================================
     Application() {}
 
-    const String getApplicationName() override       { return "SynthLevelControlTutorial"; }
+    const String getApplicationName() override       { return "White Noise"; }
     const String getApplicationVersion() override    { return "1.0.0"; }
 
-    void initialise (const String&) override         { mainWindow.reset (new MainWindow ("SynthLevelControlTutorial", new MainContentComponent(), *this)); }
+    void initialise (const String&) override         { mainWindow.reset (new MainWindow ("White Noise", new MainContentComponent(), *this)); }
     void shutdown() override                         { mainWindow = nullptr; }
 
 private:

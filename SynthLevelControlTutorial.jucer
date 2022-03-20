@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT name="SynthLevelControlTutorial" companyName="JUCE" version="1.0.0"
-              userNotes="Synthesiser with level control." companyWebsite="http://juce.com"
-              defines="" projectType="guiapp" id="I0dfNr" jucerFormatVersion="1">
-  <MAINGROUP id="XHon16" name="SynthLevelControlTutorial">
+<JUCERPROJECT name="WhiteNoise" companyName="JUCE" version="1.0.0" userNotes="Synthesiser with level control."
+              companyWebsite="http://juce.com" defines="" projectType="guiapp"
+              id="I0dfNr" jucerFormatVersion="1">
+  <MAINGROUP id="XHon16" name="WhiteNoise">
     <GROUP id="{EC3E7B4C-757E-8C38-CFAB-A6FD1BAFF97A}" name="Source">
       <FILE id="h8eKXe" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="o1pUBI" name="SynthLevelControlTutorial_01.h" compile="0"
