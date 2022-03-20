@@ -93,11 +93,11 @@ public:
 
             if (channel == 0)
             {
-                level = (float) channel1LevelSlider.getValue();
+                level = (float) channel0LevelSlider.getValue();
             }
             if (channel == 1)
             {
-                level = (float) channel0LevelSlider.getValue();
+                level = (float) channel1LevelSlider.getValue();
             }
 
             auto* buffer = bufferToFill.buffer->getWritePointer (channel, bufferToFill.startSample);
@@ -114,11 +114,11 @@ public:
 
     void resized() override
     {
-        channel1LevelLabel .setBounds (10, 10, 90, 20);
-        channel1LevelSlider.setBounds (100, 10, getWidth() - 110, 20);
+        channel0LevelLabel.setBounds(10, 10, 90, 20);
+        channel0LevelSlider.setBounds(100, 10, getWidth() - 110, 20);
 
-        channel0LevelLabel.setBounds(10, 40, 90, 20);
-        channel0LevelSlider.setBounds(100, 40, getWidth() - 110, 20);
+        channel1LevelLabel .setBounds (10, 40, 90, 20);
+        channel1LevelSlider.setBounds (100, 40, getWidth() - 110, 20);
     }
 
 private:
