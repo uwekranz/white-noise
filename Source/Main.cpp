@@ -7,7 +7,7 @@
 */
 
 #include <JuceHeader.h>
-#include "SynthLevelControlTutorial_01.h"
+#include "WhiteNoise.h"
 
 class Application    : public JUCEApplication
 {

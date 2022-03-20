@@ -6,8 +6,7 @@
   <MAINGROUP id="XHon16" name="WhiteNoise">
     <GROUP id="{EC3E7B4C-757E-8C38-CFAB-A6FD1BAFF97A}" name="Source">
       <FILE id="h8eKXe" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
-      <FILE id="o1pUBI" name="SynthLevelControlTutorial_01.h" compile="0"
-            resource="0" file="Source/SynthLevelControlTutorial_01.h"/>
+      <FILE id="o1pUBI" name="WhiteNoise.h" compile="0" resource="0" file="Source/WhiteNoise.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
@@ -64,8 +63,8 @@
     </VS2019>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="SynthLevelControlTutorial"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="SynthLevelControlTutorial"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="WhiteNoise"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="WhiteNoise"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path=""/>

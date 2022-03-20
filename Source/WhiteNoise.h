@@ -61,21 +61,21 @@ public:
     }
 
     void addRightNoiseLevelSlider() {
-        rightLevelSlider.setRange(0.0, 0.25);
-        rightLevelSlider.setTextBoxStyle(Slider::TextBoxRight, false, 100, 20);
-        rightLevelLabel.setText("Right Noise Level", dontSendNotification);
+        channel0LevelSlider.setRange(0.0, 0.25);
+        channel0LevelSlider.setTextBoxStyle(Slider::TextBoxRight, false, 100, 20);
+        channel0LevelLabel.setText("Channel 0 Level", dontSendNotification);
 
-        addAndMakeVisible(rightLevelSlider);
-        addAndMakeVisible(rightLevelLabel);
+        addAndMakeVisible(channel0LevelSlider);
+        addAndMakeVisible(channel0LevelLabel);
     }
 
     void addLeftNoiseLevelSlider() {
-        leftLevelSlider.setRange (0.0, 0.25);
-        leftLevelSlider.setTextBoxStyle (Slider::TextBoxRight, false, 100, 20);
-        leftLevelLabel.setText ("Left Noise Level", dontSendNotification);
+        channel1LevelSlider.setRange (0.0, 0.25);
+        channel1LevelSlider.setTextBoxStyle (Slider::TextBoxRight, false, 100, 20);
+        channel1LevelLabel.setText ("Channel 1 Level", dontSendNotification);
 
-        addAndMakeVisible(leftLevelSlider);
-        addAndMakeVisible(leftLevelLabel);
+        addAndMakeVisible(channel1LevelSlider);
+        addAndMakeVisible(channel1LevelLabel);
     }
 
     ~MainContentComponent() override
@@ -93,11 +93,11 @@ public:
 
             if (channel == 0)
             {
-                level = (float) leftLevelSlider.getValue();
+                level = (float) channel1LevelSlider.getValue();
             }
             if (channel == 1)
             {
-                level = (float) rightLevelSlider.getValue();
+                level = (float) channel0LevelSlider.getValue();
             }
 
             auto* buffer = bufferToFill.buffer->getWritePointer (channel, bufferToFill.startSample);
@@ -114,21 +114,21 @@ public:
 
     void resized() override
     {
-        leftLevelLabel .setBounds (10, 10, 90, 20);
-        leftLevelSlider.setBounds (100, 10, getWidth() - 110, 20);
+        channel1LevelLabel .setBounds (10, 10, 90, 20);
+        channel1LevelSlider.setBounds (100, 10, getWidth() - 110, 20);
 
-        rightLevelLabel.setBounds(10, 40, 90, 20);
-        rightLevelSlider.setBounds(100, 40, getWidth() - 110, 20);
+        channel0LevelLabel.setBounds(10, 40, 90, 20);
+        channel0LevelSlider.setBounds(100, 40, getWidth() - 110, 20);
     }
 
 private:
     Random random;
 
-    Slider leftLevelSlider;
-    Label  leftLevelLabel;
+    Slider channel1LevelSlider;
+    Label  channel1LevelLabel;
 
-    Slider rightLevelSlider;
-    Label  rightLevelLabel;
+    Slider channel0LevelSlider;
+    Label  channel0LevelLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };
