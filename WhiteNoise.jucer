@@ -5,8 +5,14 @@
               id="I0dfNr" jucerFormatVersion="1">
   <MAINGROUP id="XHon16" name="WhiteNoise">
     <GROUP id="{EC3E7B4C-757E-8C38-CFAB-A6FD1BAFF97A}" name="Source">
+      <FILE id="iO4Fbi" name="MainContentComponent.h" compile="0" resource="0"
+            file="Source/MainContentComponent.h"/>
+      <FILE id="oOrFsI" name="MainContentComponent.cpp" compile="1" resource="0"
+            file="Source/MainContentComponent.cpp"/>
       <FILE id="h8eKXe" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
-      <FILE id="o1pUBI" name="WhiteNoise.h" compile="0" resource="0" file="Source/WhiteNoise.h"/>
+      <FILE id="LQPELP" name="DecibelSlider.h" compile="0" resource="0" file="Source/DecibelSlider.h"/>
+      <FILE id="y3jbDw" name="DecibelSlider.cpp" compile="1" resource="0"
+            file="Source/DecibelSlider.cpp"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

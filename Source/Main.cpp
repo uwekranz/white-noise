@@ -7,10 +7,9 @@
 */
 
 #include <JuceHeader.h>
-#include "WhiteNoise.h"
+#include "MainContentComponent.h"
 
-class Application    : public JUCEApplication
-{
+class Application : public JUCEApplication {
 public:
     //==============================================================================
     Application() {}
