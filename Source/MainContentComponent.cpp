@@ -46,7 +46,6 @@ void MainContentComponent::addSliders() {
 void MainContentComponent::addGainSlider(const String &labelText, Slider &slider, Label &label) {
     slider.setRange(0.0, 0.25);
     addSlider(labelText, slider, label);
-
 }
 
 void MainContentComponent::addDecibelSlider(const String &labelText, DecibelSlider &slider, Label &label) {
@@ -61,8 +60,6 @@ void MainContentComponent::addSlider(const String &labelText, Slider &slider, La
     addAndMakeVisible(slider);
     addAndMakeVisible(label);
 }
-
-
 
 void MainContentComponent::prepareToPlay(int, double) {}
 
@@ -101,4 +98,3 @@ void MainContentComponent::resized() {
     channel1DecibelLabel.setBounds(10, 130, 90, 20);
     channel1DecibelSlider.setBounds(100, 130, getWidth() - 110, 20);
 }
-
