@@ -1,5 +1,6 @@
 #include <JuceHeader.h>
 #include "MainContentComponent.h"
+#include "DecibelConfig.h"
 
 MainContentComponent::MainContentComponent() {
     setSize(600, 200);
@@ -7,8 +8,8 @@ MainContentComponent::MainContentComponent() {
 
     addSliders();
 
-    channel0DecibelSlider.setValue (-100, juce::sendNotification);
-    channel1DecibelSlider.setValue (-100, juce::sendNotification);
+    channel0DecibelSlider.setValue (DecibelConfig::minusInfinityDb, juce::sendNotification);
+    channel1DecibelSlider.setValue (DecibelConfig::minusInfinityDb, juce::sendNotification);
 
     channel0DecibelSlider.onValueChange = [this] {
         channel0Level = juce::Decibels::decibelsToGain ((float) channel0DecibelSlider.getValue());
@@ -49,7 +50,7 @@ void MainContentComponent::addGainSlider(const String &labelText, Slider &slider
 }
 
 void MainContentComponent::addDecibelSlider(const String &labelText, DecibelSlider &slider, Label &label) {
-    slider.setRange(-100, -12);
+    slider.setRange(DecibelConfig::minusInfinityDb, -12);
     addSlider(labelText, slider, label);
 }
 

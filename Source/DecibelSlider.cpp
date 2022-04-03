@@ -1,14 +1,24 @@
 #include <JuceHeader.h>
 #include "DecibelSlider.h"
+#include "DecibelConfig.h"
 
 juce::String DecibelSlider::getTextFromValue(double value) {
-    return juce::Decibels::toString(value);
+    return juce::Decibels::toString(
+            value,
+            2,
+            DecibelConfig::minusInfinityDb,
+            false,
+            DecibelConfig::customMinusInfinityString);
 }
 
 double DecibelSlider::getValueFromText(const juce::String &text) {
-    auto minusInfinitydB = -100.0;
+    auto decibelText = text.upToFirstOccurrenceOf(
+                    "dB",
+                    false,
+                    false)
+            .trim();
 
-    auto decibelText = text.upToFirstOccurrenceOf("dB", false, false).trim();
-
-    return decibelText.equalsIgnoreCase("-INF") ? minusInfinitydB : decibelText.getDoubleValue();
+    return decibelText.equalsIgnoreCase(DecibelConfig::customMinusInfinityString)
+           ? DecibelConfig::minusInfinityDb
+           : decibelText.getDoubleValue();
 }
