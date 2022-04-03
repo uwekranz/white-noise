@@ -6,7 +6,7 @@ juce::String DecibelSlider::getTextFromValue(double value) {
     return juce::Decibels::toString(
             value,
             2,
-            DecibelConfig::minusInfinityDb,
+            (double) DecibelConfig::minusInfinityDb,
             false,
             DecibelConfig::customMinusInfinityString);
 }

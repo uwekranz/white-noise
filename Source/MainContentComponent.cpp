@@ -7,28 +7,34 @@ MainContentComponent::MainContentComponent() {
     setAudioChannels(0, 2);
 
     addSliders();
+    synchronizeSliders();
+    initializeSliderValues();
+}
 
-    channel0DecibelSlider.setValue (DecibelConfig::minusInfinityDb, juce::sendNotification);
-    channel1DecibelSlider.setValue (DecibelConfig::minusInfinityDb, juce::sendNotification);
+void MainContentComponent::initializeSliderValues() {
+    channel0DecibelSlider.setValue (DecibelConfig::minusInfinityDb, sendNotification);
+    channel1DecibelSlider.setValue (DecibelConfig::minusInfinityDb, sendNotification);
+}
 
+void MainContentComponent::synchronizeSliders() {
     channel0DecibelSlider.onValueChange = [this] {
-        channel0Level = juce::Decibels::decibelsToGain ((float) channel0DecibelSlider.getValue());
-        channel0GainSlider.setValue(channel0Level, juce::dontSendNotification);
+        channel0Level = Decibels::decibelsToGain ((float) channel0DecibelSlider.getValue(), DecibelConfig::minusInfinityDb);
+        channel0GainSlider.setValue(channel0Level, dontSendNotification);
     };
 
     channel0GainSlider.onValueChange = [this] {
         channel0Level = (float) channel0GainSlider.getValue();
-        channel0DecibelSlider.setValue(juce::Decibels::gainToDecibels(channel0Level), juce::dontSendNotification);
+        channel0DecibelSlider.setValue(Decibels::gainToDecibels(channel0Level, DecibelConfig::minusInfinityDb), dontSendNotification);
     };
 
     channel1DecibelSlider.onValueChange = [this] {
-        channel1Level = juce::Decibels::decibelsToGain ((float) channel1DecibelSlider.getValue());
+        channel1Level = Decibels::decibelsToGain ((float) channel1DecibelSlider.getValue(), DecibelConfig::minusInfinityDb);
         channel1GainSlider.setValue(channel1Level, dontSendNotification);
     };
 
     channel1GainSlider.onValueChange = [this] {
         channel1Level = (float) channel1GainSlider.getValue();
-        channel1DecibelSlider.setValue(juce::Decibels::gainToDecibels(channel1Level), juce::dontSendNotification);
+        channel1DecibelSlider.setValue(Decibels::gainToDecibels(channel1Level, DecibelConfig::minusInfinityDb), dontSendNotification);
     };
 }
 

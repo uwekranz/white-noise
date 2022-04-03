@@ -41,4 +41,8 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 
     void addSlider(const String &labelText, Slider &slider, Label &label);
+
+    void synchronizeSliders();
+
+    void initializeSliderValues();
 };
